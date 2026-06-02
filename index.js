@@ -8,3 +8,5 @@ const Myserver = http.createServer((req, res) => {
 Myserver.listen(3000, () => {
     console.log('Server is listening on port 3000');
 }); 
+
+console.log("Testing Git commit");
