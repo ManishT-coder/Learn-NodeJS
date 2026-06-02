@@ -1,0 +1,82 @@
+/*
+Node.js Architecture
+
+1. Event Queue
+   - When a client sends a request, it is placed in the Event Queue.
+
+2. Event Loop
+   - The Event Loop continuously checks the Event Queue.
+   - It processes requests using the FIFO (First In, First Out) method.
+
+3. Non-Blocking Operations (Asynchronous)
+   - If the request is non-blocking, the Event Loop handles it directly.
+   - The response is sent back to the client immediately.
+
+4. Blocking Operations (Synchronous)
+   - If the request is blocking, it cannot be handled directly by the Event Loop.
+   - The request is sent to the Thread Pool.
+
+5. Thread Pool
+   - By default, Node.js has 4 worker threads.
+   - These threads perform blocking tasks in the background.
+   - After completion, the result is returned to the Event Loop.
+
+6. Response
+   - The Event Loop receives the completed result.
+   - The server sends the response back to the client.
+
+Flow:
+Client Request
+      |
+      v
+  Event Queue
+      |
+      v
+   Event Loop
+      |
+      +----> Non-Blocking Task ----> Response
+      |
+      +----> Blocking Task
+                  |
+                  v
+             Thread Pool
+                  |
+                  v
+             Event Loop
+                  |
+                  v
+               Response
+
+Key Points:
+- Single Thread Architecture
+- Event-Driven
+- Non-Blocking I/O
+- Uses Thread Pool for Blocking Operations
+- Fast and Scalable
+*/
+/*
+Blocking (Synchronous):
+- Waits for the task to complete.
+- Stops execution of the next code.
+- Example: fs.readFileSync()
+
+Non-Blocking (Asynchronous):
+- Does not wait for the task to complete.
+- Continues executing other code.
+- Example: fs.readFile()
+
+*/
+
+/*
+
+Default Thread Pool Size:
+- The default size of the Thread Pool in Node.js is 4.
+- This means that up to 4 blocking tasks can be processed simultaneously.
+- If more than 4 blocking tasks are initiated, they will be queued until a thread is available.
+
+Maximimum Thread Pool Size:
+- The maximum size of the Thread Pool can be set using the number of cpus available on the machine.
+const os = require('os');
+const maxThreads = os.cpus().length;
+- This allows Node.js to utilize all available CPU cores for handling blocking tasks.
+*/
