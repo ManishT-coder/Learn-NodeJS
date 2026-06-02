@@ -66,3 +66,17 @@ Non-Blocking (Asynchronous):
 - Example: fs.readFile()
 
 */
+
+/*
+
+Default Thread Pool Size:
+- The default size of the Thread Pool in Node.js is 4.
+- This means that up to 4 blocking tasks can be processed simultaneously.
+- If more than 4 blocking tasks are initiated, they will be queued until a thread is available.
+
+Maximimum Thread Pool Size:
+- The maximum size of the Thread Pool can be set using the number of cpus available on the machine.
+const os = require('os');
+const maxThreads = os.cpus().length;
+- This allows Node.js to utilize all available CPU cores for handling blocking tasks.
+*/
