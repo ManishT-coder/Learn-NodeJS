@@ -54,3 +54,15 @@ Key Points:
 - Uses Thread Pool for Blocking Operations
 - Fast and Scalable
 */
+/*
+Blocking (Synchronous):
+- Waits for the task to complete.
+- Stops execution of the next code.
+- Example: fs.readFileSync()
+
+Non-Blocking (Asynchronous):
+- Does not wait for the task to complete.
+- Continues executing other code.
+- Example: fs.readFile()
+
+*/
