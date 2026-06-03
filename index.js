@@ -19,6 +19,8 @@ app.get('/about', (req, res) => {
 });
 const Myserver = http.createServer(app);
 
+
+// Without using express 
 // const Myserver = http.createServer((req, res) => {
 //            if(req.url === "/favicon.ico")
 //             return res.end();
