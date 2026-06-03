@@ -37,3 +37,12 @@ const Myserver = http.createServer((req, res) => {
 Myserver.listen(8000, () => {
     console.log('Server is listening on port 8000');
 }); 
+
+
+// HTTP METHODS
+// GET - to retrieve data from the server
+// POST - to send data to the server
+// PUT - to update existing data on the server
+// DELETE - to delete data from the server
+// PATCH - to partially update existing data on the server
+// req.method - to get the HTTP method of the request it can be GET, POST, PUT, DELETE, PATCH etc.
